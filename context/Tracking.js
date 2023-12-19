@@ -23,8 +23,8 @@ export const TrackingProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState("");
 
   const createShipment = async (items) => {
+    console.log(currentUser);
     console.log(items);
-
     const { receiver, price, distance, pickupTime } = items;
 
     try {
@@ -38,11 +38,10 @@ export const TrackingProvider = ({ children }) => {
         ethers.utils.parseUnits(price, 18),
         distance,
         new Date(pickupTime).getTime(),
-        { value: ethers.utils.parseUnits(price, 18) },
+        { value: ethers.utils.parseUnits(price, 18) }
       );
 
       await createItem.wait();
-      console.log(createItem);
     } catch (error) {
       console.log(error);
     }
@@ -133,11 +132,11 @@ export const TrackingProvider = ({ children }) => {
       if (!window.ethereum) return "Require MetaMask.";
 
       const accounts = await window.ethereum.request({
-        method: "eth_accounts",
+        method: "eth_requestAccounts",
       });
 
       const provider = new ethers.providers.JsonRpcProvider();
-      const contract = fetchSmartContracts(provider);
+      const contract = fetchSmartContract(provider);
 
       const shipment = await contract.getShipment(accounts[0], index * 1);
 
@@ -214,6 +213,7 @@ export const TrackingProvider = ({ children }) => {
         method: "eth_requestAccounts",
       });
 
+      console.log(accounts);
       setCurrentUser(accounts[0]);
     } catch (error) {
       console.log(error);

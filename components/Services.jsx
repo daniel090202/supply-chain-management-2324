@@ -47,6 +47,7 @@ const Services = ({
             {services.map((service, index) => {
               return (
                 <li key={index}>
+                  {console.log(index)}
                   <div
                     onClick={() => openModelBox(index + 1)}
                     className="w-full h-60 sm:h-52 md:h-56"
