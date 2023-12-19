@@ -81,7 +81,7 @@ export const TrackingProvider = ({ children }) => {
       });
 
       const provider = new ethers.providers.JsonRpcProvider();
-      const contract = fetchSmartContracts(provider);
+      const contract = fetchSmartContract(provider);
 
       const shipmentsCount = await contract.getShipmentsCount(accounts[0]);
 
@@ -92,8 +92,6 @@ export const TrackingProvider = ({ children }) => {
   };
 
   const completeShipment = async (completeShip) => {
-    console.log(completeShip);
-
     const { receiver, index } = completeShip;
 
     try {
@@ -119,7 +117,6 @@ export const TrackingProvider = ({ children }) => {
       );
 
       transaction.wait();
-      console.log(transaction);
     } catch (error) {
       console.log(error);
     }

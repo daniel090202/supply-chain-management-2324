@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import icons from "../assets/icons/index";
+
 const StartShipment = ({ startModal, setStartModal, startShipment }) => {
   const [product, setProduct] = useState({
     receiver: "",
@@ -23,18 +25,7 @@ const StartShipment = ({ startModal, setStartModal, startShipment }) => {
               className="p-2 text-gray-400 rounded-md hover:bg-gray-100"
               onClick={() => setStartModal(false)}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 mx-auto"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 1014.293 4.293a1 1 0 01-1.414 1.414L10 11.4141-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              {icons.faXmark}
             </button>
           </div>
           <div className="max-w-sm mx-auto py-3 space-y-3 text-center">
@@ -54,7 +45,7 @@ const StartShipment = ({ startModal, setStartModal, startShipment }) => {
               </div>
               <div className="relative mt-3">
                 <input
-                  type="text"
+                  type="number"
                   placeholder="Barcode"
                   className="w-full pl-5 pr-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                   onChange={(e) =>

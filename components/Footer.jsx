@@ -1,19 +1,19 @@
 const Footer = () => {
   const navigation = [
     {
-      href: "javascript:void(0)",
+      href: "#",
       name: "Terms",
     },
     {
-      href: "javascript:void(0)",
+      href: "#",
       name: "License",
     },
     {
-      href: "javascript:void(0)",
+      href: "#",
       name: "Privacy",
     },
     {
-      href: "javascript:void(0)",
+      href: "#",
       name: "About us",
     },
   ];
@@ -43,8 +43,8 @@ const Footer = () => {
           <div className="mt-6">
             <p className="text-gray-700 font-semibold">Get application</p>
             <div className="flex items-center gap-3 mt-3 sm:block">
-              <a href="javascript:void()">1</a>
-              <a href="javascript:void()" className="mt-0 block sm:mt-3">
+              <a href="#">1</a>
+              <a href="#" className="mt-0 block sm:mt-3">
                 2
               </a>
             </div>
